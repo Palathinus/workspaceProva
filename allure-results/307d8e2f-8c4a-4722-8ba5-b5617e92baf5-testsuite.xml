@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648639272893' stop='1648639281357'>
+    <name>Cart interactions</name>
+    <title>Cart interactions</title>
+    <test-cases>
+        <test-case start='1648639272894' status='passed' stop='1648639279139'>
+            <name>Previous steps to get cart page</name>
+            <title>Previous steps to get cart page</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-100.0.4896.60'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648639279140' status='passed' stop='1648639281356'>
+            <name>With logged account click on 'COMENZAR PEDIDO' should go to checkout</name>
+            <title>With logged account click on 'COMENZAR PEDIDO' should go to checkout</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-100.0.4896.60'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
