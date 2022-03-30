@@ -6,6 +6,7 @@ const Selector = require('../../pageobjects/home/selectors');
 const SelectorCookies = require('../../pageobjects/cookies/selectors');
 const SelectorLogin = require('../../pageobjects/login/selectors');
 const SelectorAccount = require('../../pageobjects/account/selectors');
+const { default: AllureReporter } = require('@wdio/allure-reporter');
 
 
 describe('Account activity', () => {
@@ -15,6 +16,7 @@ describe('Account activity', () => {
         await Cookies.closeCookies(SelectorCookies.cookieID);
         await LoginPage.login('alex1492ml@gmail.com', 'testing3');
         //await LoginPage.login('vencaautomatedtest@gmail.com', 'testing1');
+        AllureReporter.addFeature('Login')
     });
 
     it('should access My Account section', async () => {
@@ -22,11 +24,13 @@ describe('Account activity', () => {
         await SelectorAccount.myAccountButton.click();
         await expect (SelectorAccount.titleData.$$('[class="userFS18 thin voffset3 antiVoffset3"]')).toHaveTextContaining('alex1492ml@gmail.com');
         //await expect (SelectorAccount.titleData.$$('[class="userFS18 thin voffset3 antiVoffset3"]')).toHaveTextContaining('vencaautomatedtest@gmail.com');
+        AllureReporter.addFeature('Access')
     });
 
     it('should open the orders section and check if there are orders', async () => {
         await SelectorAccount.myOrders.click();
         await expect (SelectorAccount.tabMyOrders).toBePresent();
+        AllureReporter.addFeature('Orders Section')
     }); 
 
     it('should open the data section and modify some fields in it', async () => {
@@ -34,7 +38,8 @@ describe('Account activity', () => {
         await SelectorAccount.modifyButton.click();
         await MyAccountPage.modifyData('Alex', 'VencaSurname', '5', '1', '1991', 'mujer', 'Misser Ruffet', '32', '1r 2a', 'Vilanova i la Geltrú', '08800', 'Tarragona', '6784589621');
         MyAccountPage.chooseData;       
-        await expect(SelectorAccount.accCheck).toHaveTextContaining('Alex');        
+        await expect(SelectorAccount.accCheck).toHaveTextContaining('Alex');    
+        AllureReporter.addFeature('Data Section')    
     });
 
     /*it('should open the addresses section and add a new address', async () => {
@@ -51,6 +56,7 @@ describe('Account activity', () => {
         await SelectorAccount.usernameButton.click();
         await SelectorAccount.logouttButton.click();
         await expect(SelectorLogin.accCheck).toHaveTextContaining('LOGIN');
+        AllureReporter.addFeature('Logout')
     });
 
 });
